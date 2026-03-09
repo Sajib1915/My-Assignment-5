@@ -23,7 +23,79 @@
       <button class="btn-new-issue">+ New Issue</button>
     </div>
   </nav>
+  <!-- Main Container -->
+  <div class="container">
 
-  
+    <!-- Tabs -->
+    <div class="tabs-wrapper">
+      <div class="tabs">
+        <button class="tab-btn active" id="tab-all" onclick="filterIssues('all')">All</button>
+        <button class="tab-btn" id="tab-open" onclick="filterIssues('open')">Open</button>
+        <button class="tab-btn" id="tab-closed" onclick="filterIssues('closed')">Closed</button>
+      </div>
+    </div>
+
+    <!-- Issue Count Section -->
+    <div class="issues-header">
+      <div class="issues-header-left">
+        <img src="./assets/Aperture.png" alt="icon" class="header-icon" />
+        <div>
+          <h2 class="issue-count" id="issueCount">0 Issues</h2>
+          <p class="issue-subtext">Track and manage your project issues</p>
+        </div>
+      </div>
+      <div class="issues-header-right">
+        <span class="status-badge open">
+          <img src="./assets/Open-Status.png" alt="open" width="14"/> Open
+        </span>
+        <span class="status-badge closed">
+          <img src="./assets/Closed-Status.png" alt="closed" width="14"/> Closed
+        </span>
+      </div>
+    </div>
+
+
+    <!-- Loading Spinner -->
+    <div class="spinner-wrapper" id="spinner">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Issues Grid -->
+    <div class="issues-grid" id="issuesGrid"></div>
+
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <div class="modal-title-row">
+          <span class="modal-status-badge" id="modalStatus"></span>
+          <span class="modal-dot">•</span>
+          <span class="modal-meta" id="modalOpened"></span>
+        </div>
+        <div class="modal-labels" id="modalLabels"></div>
+      </div>
+      <div class="modal-body">
+        <p class="modal-description" id="modalDescription"></p>
+        <div class="modal-info-row">
+          <div>
+            <p class="modal-info-label">Assignee:</p>
+            <p class="modal-info-value" id="modalAssignee"></p>
+          </div>
+          <div>
+            <p class="modal-info-label">Priority:</p>
+            <p class="modal-info-value" id="modalPriority"></p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-close-modal" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+
 </body>
 </html>
